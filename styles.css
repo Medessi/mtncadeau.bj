@@ -1,0 +1,282 @@
+:root {
+    --mtn-yellow: #ffcb05;
+    --mtn-blue: #004f9f;
+  }
+  body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    overscroll-behavior-y: contain;
+  }
+  .app-header {
+    background-color: var(--mtn-yellow);
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  .logo {
+    width: 100px;
+    height: auto;
+  }
+  .menu-icon {
+    font-size: 24px;
+    color: var(--mtn-blue);
+  }
+  .content {
+    padding: 16px;
+    margin-bottom: 60px; /* Pour éviter que le contenu soit caché par la barre d'onglets */
+  }
+  .card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+  .button {
+    background-color: var(--mtn-blue);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 24px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease;
+  }
+  .button:active {
+    background-color: #003c7a;
+  }
+  .tab-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    padding: 8px 0;
+    box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+  }
+  .tab-item {
+    text-align: center;
+    font-size: 12px;
+    color: var(--mtn-blue);
+    cursor: pointer;
+  }
+  .tab-icon {
+    font-size: 24px;
+    margin-bottom: 4px;
+  }
+  .prize-list {
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    padding: 16px 0;
+  }
+  .prize-item {
+    flex: 0 0 auto;
+    width: 200px;
+    margin-right: 16px;
+    scroll-snap-align: start;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 16px;
+    text-align: center;
+  }
+  .prize-icon {
+    font-size: 48px;
+    margin-bottom: 8px;
+  }
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+  .pulse {
+    animation: pulse 2s infinite;
+  }
+  .hidden {
+    display: none;
+  }
+  .game-container {
+    text-align: center;
+    padding: 20px;
+  }
+  .game-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 20px;
+  }
+  .game-cell {
+    background-color: var(--mtn-yellow);
+    border-radius: 8px;
+    padding: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .game-cell:active {
+    background-color: #e0b000;
+  }
+  .reward-progress {
+    margin-top: 20px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    height: 20px;
+    overflow: hidden;
+  }
+  .reward-bar {
+    height: 100%;
+    background-color: var(--mtn-blue);
+    width: 0%;
+    transition: width 0.5s ease;
+  }
+  .promotion-carousel {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  .carousel-container {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+  .carousel-slide {
+    flex: 0 0 100%;
+  }
+  .carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    font-size: 18px;
+    padding: 10px;
+    cursor: pointer;
+  }
+  .carousel-button.prev {
+    left: 10px;
+  }
+  .carousel-button.next {
+    right: 10px;
+  }
+  #wheel-container {
+    text-align: center;
+  }
+  #wheel {
+    margin-bottom: 20px;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  .fade-in {
+    animation: fadeIn 0.5s ease;
+  }
+  .main-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80%;
+    max-width: 300px;
+    height: 100%;
+    background-color: white;
+    z-index: 1000;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    transform: translateX(-100%);
+  }
+  .main-menu.active {
+    transform: translateX(0);
+  }
+  .main-menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  .main-menu li a {
+    display: block;
+    padding: 15px 20px;
+    color: var(--mtn-blue);
+    text-decoration: none;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: var(--mtn-blue);
+  }
+  .social-share {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+  }
+  .share-button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+  }
+  .share-button[data-platform="facebook"] {
+    background-color: #3b5998;
+  }
+  .share-button[data-platform="twitter"] {
+    background-color: #1da1f2;
+  }
+  .share-button[data-platform="whatsapp"] {
+    background-color: #25d366;
+  }
+  #create-account-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  #create-account-form input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  #edit-profile-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  #edit-profile-form input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  #edit-profile-form button {
+    margin-top: 10px;
+  }
+  .rewards-progress {
+    margin-bottom: 20px;
+  }
+  .progress-bar {
+    width: 100%;
+    height: 20px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .progress {
+    height: 100%;
+    background-color: var(--mtn-blue);
+    transition: width 0.5s ease;
+  }
